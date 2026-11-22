@@ -1,0 +1,7 @@
+{
+  "name": "school-app-temp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
