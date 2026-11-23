@@ -26,8 +26,16 @@ import {
   IonTitle,
   IonToolbar,
 } from "@ionic/vue";
-import { auth } from "@/firebase";
+import { watch } from "vue";
+import { useRouter } from "vue-router";
 const user = useAuth().user;
-const logOut = useAuth();
+const logOut = useAuth().logOut;
+const ready = useAuth().ready;
+const router = useRouter();
 
+watch([user, ready],([currentUser,isReady]) => {
+  if ((!currentUser) && (isReady)) {
+    router.replace('/home');
+  }
+})
 </script>
