@@ -1,5 +1,5 @@
 {
-  "name": "school-app-temp",
+  "name": "firebase-app",
   "private": true,
   "version": "0.0.1",
   "type": "module",
@@ -40,6 +40,7 @@
     "@types/node": "^24.0.0",
     "@vitejs/plugin-legacy": "^8.2.4",
     "@vitejs/plugin-vue": "^6.0.11",
+    "@vue/cli-service": "5.0.9",
     "@vue/eslint-config-typescript": "^14.9.0",
     "@vue/test-utils": "^2.3.0",
     "eslint": "^10.13.0",

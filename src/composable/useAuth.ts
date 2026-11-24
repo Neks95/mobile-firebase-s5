@@ -1,6 +1,7 @@
 import { readonly, ref } from "vue";
 import {onAuthStateChanged, signOut, type User} from "firebase/auth";
 import { auth } from "@/firebase";
+import router from "@/router";
 
 const user = ref<User | null>(null);
 const ready = ref(false);
@@ -21,6 +22,7 @@ onAuthStateChanged(auth, (currentUser) => {
 
  async function logOut() {
   await signOut(auth);
+  await router.replace("/");
 }
 
 export function useAuth() {
