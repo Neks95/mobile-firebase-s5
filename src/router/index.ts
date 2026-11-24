@@ -19,6 +19,7 @@ const routes: RouteRecordRaw[] = [
     name : 'Accueil' ,
     component: Accueil,
   }
+
 ];
 
 const router = createRouter({
