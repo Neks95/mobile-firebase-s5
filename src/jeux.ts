@@ -6,6 +6,7 @@ import CollectionReference = firebase.firestore.CollectionReference;
 
 // 1. Définissez la structure de votre jeu
 export interface Jeu {
+  id?: string;
   titre: string;
   genre: string;
   anneeSortie: number;
@@ -354,6 +355,8 @@ export async function getJeux() : Promise<Jeu[] | undefined>{
 
   }
 }
+
+export as
 
 export async function insererTousLesJeux() {
   for (const jeu of jeuxDeTest) {
