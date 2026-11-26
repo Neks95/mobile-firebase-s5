@@ -356,8 +356,6 @@ export async function getJeux() : Promise<Jeu[] | undefined>{
   }
 }
 
-export as
-
 export async function insererTousLesJeux() {
   for (const jeu of jeuxDeTest) {
     await ajouterUnJeu(jeu);
