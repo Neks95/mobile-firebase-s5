@@ -1,6 +1,6 @@
-import { collection, addDoc,getDocs } from "firebase/firestore";
+import { collection, addDoc, getDocs, getDoc, doc } from "firebase/firestore";
 import { db } from "./firebase"; // Votre instance Firestore
-import {earOutline} from "ionicons/icons";
+import { earOutline } from "ionicons/icons";
 import firebase from "firebase/compat/app";
 import CollectionReference = firebase.firestore.CollectionReference;
 
@@ -11,16 +11,16 @@ export interface Jeu {
   genre: string;
   anneeSortie: number;
   categorie: "Multiplayer" | "Solo";
-  plateforme : string[];
-  prix : string;
-  editeur : string;
-  avis : number;
-  pegi : number;
-  taille : number;
-  photo_couverture : string;
-  photo_detail : string[];
-  enligne : boolean;
-  enLocal : boolean;
+  plateforme: string[];
+  prix: string;
+  editeur: string;
+  avis: number;
+  pegi: number;
+  taille: number;
+  photo_couverture: string;
+  photo_detail: string[];
+  enligne: boolean;
+  enLocal: boolean;
 }
 const jeuxDeTest: Jeu[] = [
   {
@@ -340,8 +340,8 @@ async function ajouterUnJeu(donneesJeu: Jeu) {
   }
 }
 
-export async function getJeux() : Promise<Jeu[] | undefined>{
-  try{
+export async function getJeux(): Promise<Jeu[] | undefined> {
+  try {
     const jeuxCollection = collection(db, "jeux");
     const querySnapshot = await getDocs(jeuxCollection);
     return querySnapshot.docs.map((document) => {
@@ -353,6 +353,24 @@ export async function getJeux() : Promise<Jeu[] | undefined>{
     });
   } catch (e) {
 
+  }
+}
+
+export async function getJeuById(id: string): Promise<Jeu> {
+  if (!id.trim()) {
+    throw new Error("Identifiant du jeu manquant.")
+  }
+
+  const docRef = doc(db, "jeux", id)
+  const docSnap = await getDoc(docRef)
+
+  if (!docSnap.exists()) {
+    throw new Error("Le jeu n'existe pas en base")
+  }
+
+  return {
+    id: docSnap.id,
+    ...(docSnap.data() as Omit<Jeu, "id">),
   }
 }
 

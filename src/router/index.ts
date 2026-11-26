@@ -7,6 +7,7 @@ import { auth } from '@/firebase';
 import Login from '../views/Login.vue';
 import Accueil from "@/views/Accueil.vue";
 import {onAuthStateChanged} from "firebase/auth";
+import Fiche from '@/views/Fiche.vue';
 
 const routes: RouteRecordRaw[] = [
   {
@@ -22,8 +23,12 @@ const routes: RouteRecordRaw[] = [
     path : '/accueil',
     name : 'Accueil' ,
     component: Accueil,
+  },
+  {
+    path: '/jeux/:id',
+    name: 'Fiche',
+    component: Fiche,
   }
-
 ];
 
 const router = createRouter({

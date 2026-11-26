@@ -1,6 +1,6 @@
 <template>
 
-  <ion-card class="game-card">
+  <ion-card class="game-card" button :router-link="`/jeux/${jeux.id}`">
     <div class="cover">
       <ion-img
         :src="jeux.photo_couverture"
