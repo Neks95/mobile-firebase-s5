@@ -1,7 +1,5 @@
 import { createRouter, createWebHistory } from '@ionic/vue-router';
 import type { RouteRecordRaw } from 'vue-router';
-
-import { authReady } from '@/composable/useAuth';
 import { auth } from '@/firebase';
 
 import Login from '../views/Login.vue';

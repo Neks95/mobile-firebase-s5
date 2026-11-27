@@ -5,6 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "ionic:serve":"vite",
     "build": "vue-tsc && vite build",
     "preview": "vite preview",
     "lint": "npm run eslint && npm run typecheck:e2e && npm run prettier -- --check",

@@ -1,8 +1,5 @@
 import { collection, addDoc, getDocs, getDoc, doc } from "firebase/firestore";
 import { db } from "./firebase"; // Votre instance Firestore
-import { earOutline } from "ionicons/icons";
-import firebase from "firebase/compat/app";
-import CollectionReference = firebase.firestore.CollectionReference;
 
 // 1. Définissez la structure de votre jeu
 export interface Jeu {
@@ -379,6 +376,5 @@ export async function insererTousLesJeux() {
     await ajouterUnJeu(jeu);
   }
 }
-
 
 
